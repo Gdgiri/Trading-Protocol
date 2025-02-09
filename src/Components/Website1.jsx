@@ -8,7 +8,10 @@ const Website1 = () => {
     const newTransaction = { name: "BTC-USD", price: 2500, status };
 
     try {
-      await axios.post("http://localhost:5000/api/transaction", newTransaction);
+      await axios.post(
+        "https://trading-protocol-backend.onrender.com/api/transaction",
+        newTransaction
+      );
       fetchTransactions();
     } catch (error) {
       console.error("Error processing transaction:", error);
@@ -18,7 +21,7 @@ const Website1 = () => {
   const fetchTransactions = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/transactions"
+        "https://trading-protocol-backend.onrender.com/api/transactions"
       );
       setTransactions(response.data.transactions);
     } catch (error) {
